@@ -5,7 +5,7 @@ def main() :
     score = 0
     stack_a = 0
     for _ in range(number) :
-        card = input().upper()
+        card = input().upper().strip()
         if card in ("J" , "K" , "Q") :
             score += 10
         elif card.isnumeric() :
