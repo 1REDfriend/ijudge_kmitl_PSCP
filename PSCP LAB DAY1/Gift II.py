@@ -1,10 +1,16 @@
-"""Gift II"""
+'''Gift II'''
 def main():
-    """Gift II"""
-    sums = 0
-    for _ in range(8):
-        gift = int(input())
-        if not gift % 2 :
-            sums += gift
-    print(sums)
+    '''doc str'''
+    def abc(n):
+        '''doc str'''
+        if not n % 2:
+            print(n)
+    abc(int(input()))
+    abc(int(input()))
+    abc(int(input()))
+    abc(int(input()))
+    abc(int(input()))
+    abc(int(input()))
+    abc(int(input()))
+    abc(int(input()))
 main()
