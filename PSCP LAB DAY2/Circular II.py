@@ -9,7 +9,7 @@ def main() :
     rf = float(input())
 
     process = (((xf-x)**2) + ((yf-y)**2))**0.5
-    if process <= (r+rf)*2:
+    if process - (r + rf) < 0:
         print("Yes")
     else :
         print("No")
