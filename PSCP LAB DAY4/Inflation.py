@@ -1,13 +1,11 @@
 """Inflation"""
 def main():
     """main"""
-    num = float(input())
+    num = int(float(input())*100)
     year = int(input())
-    inflation_rate = 0.0381
 
     for _ in range(year) :
-        num = num * (1 + inflation_rate)
-        num = int(num * 100) / 100
-        print(num)
-    print(f"{num}")
+        num = int(num * (3.81/100))
+    num /= 100
+    print(f"{num:.2f}")
 main()
