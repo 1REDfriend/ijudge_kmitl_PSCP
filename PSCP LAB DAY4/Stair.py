@@ -25,7 +25,7 @@ def main() :
     if stack_step > 0 and result > -1:
         result += 1
         stack_step = 0
-    if result < 0 :
+    if result < 0 or not canStepping :
         print("No")
     else :
         print(result)
