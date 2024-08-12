@@ -12,11 +12,17 @@ def main() :
             user1 += 1
         if temp[0] == "R" and temp[1] == "P" :
             user2 += 1
-        
+
         if temp[1] == "S" and temp[0] == "R" :
             user1 += 1
         if temp[1] == "S" and temp[0] == "P" :
             user2 += 1
         if temp[1] == "R" and temp[0] == "P" :
             user1 += 1
+    if user1 > user2 :
+        print(f"A win {user1}-{user2}")
+    elif user2 > user1 :
+        print(f"B win {user2}-{user1}")
+    else :
+        print("DRAW" , user1)
 main()
