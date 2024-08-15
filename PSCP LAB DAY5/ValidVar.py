@@ -2,7 +2,7 @@
 def main() :
     """ValidVar main"""
     count = int(input())
-    specialString = """abcdefghijklmnopqrstuvwxyzABCDEFCHIJKLMNOPQRSTUVWXYZ_
+    specialString = """abcdefghijklmnopqrstuvwxyzABCDEFGCHIJKLMNOPQRSTUVWXYZ_
 1234567890"""
     keywords = {
         'if', 'else', 'elif', 'while', 'for', 'True', 'False', 'continue', 'break',

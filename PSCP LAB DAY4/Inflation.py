@@ -12,12 +12,12 @@ def main():
     num = float(num)
 
     for _ in range(year) :
-        num = (num * (1 + inflation_rate)) * 100
-        num = str(num)
-        dot = num.find(".")
-        if dot != -1 :
-            num = num[:dot]
-        print(num)
-        num = int(num)
-    print(f"{num/100}")
+        num = (num * (1 + inflation_rate)) 
+        # print(num)
+    num = str(num)
+    dot = num.find(".")
+    if dot != -1 :
+        num = num[:dot+3]
+    num = float(num)
+    print(f"{num}")
 main()
