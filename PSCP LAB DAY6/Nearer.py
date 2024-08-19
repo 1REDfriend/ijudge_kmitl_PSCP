@@ -5,17 +5,13 @@ def main() :
     bob = int(input())
     ice = int(input())
 
-    if alice < 0 :
-        alice = abs(alice) + 1
-    if bob < 0 :
-        bob = abs(bob) + 1
-    if ice < 0 :
-        ice = abs(ice) + 1
+    aliceCount = abs(alice - ice)
+    bobCount = abs(bob - ice)
 
-    if abs(alice - ice) < abs(bob - ice) :
-        print("Alice" , abs(alice - ice))
-    elif abs(bob - ice) < abs(alice - ice) :
-        print("Bob" , abs(bob - ice))
+    if aliceCount < bobCount:
+        print(f"Alice {aliceCount}")
+    elif bobCount < aliceCount:
+        print(f"Bob {bobCount}")
     else :
-        print("Sundaes")
+        print("Sundaes 0")
 main()

@@ -10,7 +10,7 @@ def main() :
     print("*"*(boxWidth) + (" "+("*"*boxWidth))*(boxCount-1))
     # boxWidth หาร 2 ไม่เอาเศษ แล้วลบออก 3 เพื่อเอาแค่ส่วนด้านบน
     for i in range((boxWidth-2)//2) :
-        # ที่เอา (boxWidth-(i+i+4) คือ ขนาดของ space 2 ข้าง (i) 
+        # ที่เอา (boxWidth-(i+i+4) คือ ขนาดของ space 2 ข้าง (i)
         # ขนาดของ * ที่มีอยู่
         print(f'*{(" "*i)}*{(" "*(boxWidth-(i+i+4)))}*{" "*i}*',end="")
         print((" "+(f'*{(" "*i)}*{(" "*(boxWidth-(i+i+4)))}*{" "*i}*'))*(boxCount-1))
