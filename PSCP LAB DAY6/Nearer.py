@@ -13,5 +13,8 @@ def main() :
     elif bobCount < aliceCount:
         print(f"Bob {bobCount}")
     else :
-        print("Sundaes 0")
+        if aliceCount or bobCount :
+            print(f"Sundaes {aliceCount}")
+        else :
+            print("Sundaes 0")
 main()

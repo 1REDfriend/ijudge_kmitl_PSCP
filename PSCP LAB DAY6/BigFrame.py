@@ -8,7 +8,6 @@ def main():
     m5 =input("").strip()
 
     resulf = max(len(m1),len(m2),len(m3),len(m4),len(m5))
-    print(resulf)
     print("*"*(resulf+4))
     print(f"* {m1:<{resulf}} *")
     print(f"* {m2:<{resulf}} *")

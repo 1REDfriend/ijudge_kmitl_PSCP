@@ -1,32 +1,29 @@
-"""Stair"""
-def main() :
-    """main of Stair"""
-    canStepping = int(input())
-    stepStair = int(input())
+"Stair"
+def main():
+    "Stair main"
+    canHigh = int(input())
+    stairStep = int(input())
+    currentStep = 0
+    count = 0
+    for _ in range(stairStep):
+        height = int(input())
+        if height > canHigh:
+            print("NO")
+            return
+        currentStep += height
+        if currentStep >= canHigh:
+            count += 1
+            if currentStep == canHigh:
+                currentStep = 0
+            elif currentStep > canHigh:
+                currentStep -= currentStep - height
+        if currentStep > canHigh:
+            print("NO")
 
-    cat_stair = []
-    stack_step = 0
+    if currentStep > 0:
+        count += 1
+    if not canHigh:
+        count = 0
+    print(count)
 
-    result = 0
-    if stepStair <= 0 :
-        result = 0
-    else :
-        for _ in range(stepStair) :
-            cat_stair.append(int(input()))
-        for v in cat_stair :
-            if v <= canStepping :
-                if stack_step + v > canStepping:
-                    result += 1
-                    stack_step = 0
-                stack_step += v
-            else :
-                result = -1
-                break
-    if stack_step > 0 and result > -1:
-        result += 1
-        stack_step = 0
-    if result < 0 or not canStepping :
-        print("No")
-    else :
-        print(result)
 main()

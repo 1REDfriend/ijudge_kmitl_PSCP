@@ -1,23 +1,13 @@
-"""Inflation"""
+"""inflation"""
 def main():
-    """main"""
-    num = float(input())
+    """inflation main"""
+    money = int(float(input())*100)
     year = int(input())
-    inflation_rate = 0.0381
-
-    num = str(num)
-    dot = num.find(".")
-    if dot != -1 :
-        num = num[:dot+3]
-    num = float(num)
-
-    for _ in range(year) :
-        num = (num * (1 + inflation_rate)) 
-        # print(num)
-    num = str(num)
-    dot = num.find(".")
-    if dot != -1 :
-        num = num[:dot+3]
-    num = float(num)
-    print(f"{num}")
+    for _ in range(year):
+        money += money *381//10000
+    if not money:
+        print("0.00")
+    else:
+        money = str(money)
+        print(money[:-2]+"."+money[-2:])
 main()
