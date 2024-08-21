@@ -1,5 +1,6 @@
 """Books"""
 import math
+
 def main() :
     """Books main"""
     books = int(input())
@@ -7,19 +8,16 @@ def main() :
     x = int(input())
     y = int(input())
 
-    dayCount = 0
-    readDayCount = 0
-    lastDayRead = 0
-
     pageTemp = page
+    dayCount = 0
 
     while books > 0 :
-        pageTemp -= math.ceil((x+lastDayRead+dayCount)/(y+lastDayRead+dayCount))
-        dayCount += 1
-        readDayCount += 1
+        pageTemp -= math.ceil(((x+dayCount)/(y+dayCount))*page)
+        if math.ceil(((x+dayCount)/(y+dayCount))*page) >= page:
+            break
         if pageTemp <= 0 :
-            books -= 1
             pageTemp = page
-            lastDayRead = readDayCount
-    print(dayCount)
+            books -= 1
+        dayCount += 1
+    print(dayCount + books)
 main()
