@@ -2,36 +2,32 @@
 def main() :
     """Bubble main"""
     text = input()
+    jumping = 0
+    bigjump = False
     lastBubble = ''
-    jumpCount = 1
-    canJump = 1
-    result = ''
+    result = 'POSSIBLE'
     for i in text :
-        if canJump > 0 and i != "^" and i != "|":
-            canJump -= 1
-            if lastBubble == "O" :
-                canJump -= 1
-                lastBubble = i
-                continue
-            elif i == " " and lastBubble == "o":
-                result = "IMPOSSIBLE"
-                jumpCount = 1
-                canJump = 0
+        if bigjump :
+            jumping += 1
+            lastBubble = i
+            bigjump = False
+            continue
+        if i != "^" and i != "|" and result == 'POSSIBLE':
             if i == "o" :
-                jumpCount += 1
-                lastBubble = i
-                canJump = 1
+                jumping += 1
             elif i == "O" :
-                jumpCount += 1
-                lastBubble = i
-                canJump = 2
+                jumping += 1
+                bigjump = True
             elif i == " " :
-                if lastBubble == "o" :
-                    result = 'IMPOSSIBLE'
-                    canJump = 0
-                    jumpCount = 1
-        if canJump <= 0 and i != "^" and i != "|":
-            jumpCount += 1
+                if lastBubble == "O" :
+                    jumping += 1
+                    continue
+                elif lastBubble == "o" :
+                    jumping = 1
+                    result = "IMPOSSIBLE"
+                    continue
+        elif result == 'IMPOSSIBLE' :
+            jumping += 1
     print(result)
-    print(jumpCount)
+    print(jumping)
 main()
