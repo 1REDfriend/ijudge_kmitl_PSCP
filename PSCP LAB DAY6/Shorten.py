@@ -1,52 +1,41 @@
 """Shorten"""
 def main() :
-    """Shorten main"""
-
-    stack = ''
-    result = ''
-    last_result = ''
-
-    count = 0
-    check_num = 0
-    first = 0
-    num = -1
-
-    firstTime = True
-    hasStack = False
+    """main"""
+    last_num = int()
+    first_st_num = int()
+    result = str()
 
     while True :
-        if num > -1 :
-            result += ", "
         num = int(input())
         if num != -1 :
-            if count > 0 :
-                if check_num+1 == num :
-                    if firstTime :
-                        first = check_num
-                        firstTime = False
-                    stack = f'{first}-{num}'
-                    hasStack = True
-                    check_num = num
-                else :
-                    firstTime = True
-                    if count == 1 :
-                        result += check_num
-                    if stack :
-                        if hasStack :
-                            result = last_result + stack 
-                        else :
-                            result += stack + ", " + str(num) 
-                            stack = ''
-                    else :
-                        last_result = result
-                        result += str(num)
-                    check_num = num
+            if last_num + 1 == num :
+                if not first_st_num :
+                    first_st_num = last_num
+            elif first_st_num :
+                if result :
+                    result += ', '
+                if result.find(str(first_st_num)) != -1 :
+                    result = result.replace(f', {first_st_num}', '')
+                    result = result.replace(f'{first_st_num}, ', '')
+                result += str(first_st_num)+"-"+str(last_num)+", "+str(num)
+                first_st_num = int()
             else :
-                check_num = num
-            count += 1
+                if result :
+                    result += ', '
+                result += str(num)
+            last_num = num
         else :
+            if first_st_num :
+                if result.find(str(first_st_num)) != -1 :
+                    result = result.replace(f', {first_st_num}', '')
+                if result :
+                    result += ', '
+                result += str(first_st_num)+"-"+str(last_num)
+                first_st_num = int()
+            elif num != -1 :
+                if result :
+                    result += ', '
+                result += str(num)
             break
-    if stack :
-        result += stack
     print(result)
 main()
