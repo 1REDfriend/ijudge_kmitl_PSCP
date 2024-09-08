@@ -1,34 +1,31 @@
 """Bubble"""
 def main() :
     """Bubble main"""
-    text = input()
-    jumping = 1
-    canJump = True
-    skip = 0
-    result = 'POSSIBLE'
-
+    text = input().strip()
+    jump = 1
+    con = 0
+    result = "POSSIBLE"
     for i,v in enumerate(text) :
-        if not canJump :
-            jumping += 1
+        if con :
+            con -= 1
             continue
-        if skip > 0 :
-            skip -= 1
-            continue
-        if v == "o" :
-            jumping += 1
-        elif v == "O" :
-            jumping += 1
-            if "|" in text[i+1:i+4] :
-                skip = 3
-            elif text[i+2:i+3] == " " or text[i+2:i+3] == "o" :
-                skip = 2
-            elif text[i+1:i+2] == " " or text[i+1:i+2] == "o":
-                skip = 1
-
-        elif v == " " :
-            result = "IMPOSSIBLE"
-            jumping = 1
-            canJump = False
+        if result == "POSSIBLE" :
+            if v == "o" :
+                jump += 1
+            elif v == "O" :
+                jump += 1
+                st_text = text[i+1:i+4]
+                if st_text.find("|") != -1:
+                    con = st_text.find("|")
+                elif st_text.find("O") != -1 :
+                    con = 2 - st_text[::-1].find("O")
+                elif st_text[::-1].find("o") != -1 :
+                    con = 2 - st_text[::-1].find("o")
+            elif v == " " :
+                result = "IMPOSSIBLE"
+                jump = 1
+        else :
+            jump += 1
     print(result)
-    print(jumping)
+    print(jump)
 main()
