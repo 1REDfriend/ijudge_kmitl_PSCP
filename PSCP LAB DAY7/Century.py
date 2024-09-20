@@ -4,7 +4,7 @@ def main() :
     num = int(input())
     for _ in range(num) :
         date = input().strip().split(" ")
-        if date[0] == "B.E." :
+        if date[0].upper() == "B.E." :
             engYear = int(date[1]) - 543
             engYear += 100
             century = engYear // 100
@@ -16,7 +16,7 @@ def main() :
                 continue
             print(century)
 
-        elif date[0] == "A.D." :
+        elif date[0].upper() == "A.D." :
             engYear = int(date[1]) + 100
             century = engYear // 100
             two_century = str(engYear)[:2]
