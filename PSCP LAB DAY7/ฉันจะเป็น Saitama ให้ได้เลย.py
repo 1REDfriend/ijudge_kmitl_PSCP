@@ -1,6 +1,8 @@
 """ฉันจะเป็น Saitama ให้ได้เลย"""
 import math
-def main() :
+
+
+def main():
     """ฉันจะเป็น Saitama ให้ได้เลย main"""
     ground = int(input())
     situp = int(input())
@@ -18,13 +20,14 @@ def main() :
     run = math.ceil(run / oneD_run)
 
     result = ground
-    if situp > result :
+    if situp > result:
         result = situp
-    if updown > result :
+    if updown > result:
         result = updown
-    if run > result :
+    if run > result:
         result = run
 
     print(result)
+
 
 main()
