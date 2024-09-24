@@ -1,22 +1,33 @@
 """IT Business"""
 def main():
     """IT Business MAIN"""
-    bank = int(input())
-    cash = int(input())
+    bank = float(input())
+    cash = float(input())
     money = " "
+    count = 0
 
     while True:
-        money = input().split(" ")
+        money = input()
         if money == "end":
             break
-        if money[0] == "D":
-            if cash >= int(money[1]):
-                cash -= int(money[1])
-                bank += int(money[1])
-        elif money[0] == "W":
-            if bank >= int(money[1]):
-                bank -= int(input())
-                cash += int(input())
+        if money[:money.find(" ")] == "D":
+            if cash >= float(money[money.find(" "):]):
+                cash -= float(money[money.find(" "):])
+                bank += float(money[money.find(" "):])
+                count = 0
+            else :
+                count += 1
+        elif money[:money.find(" ")] == "W":
+            if bank >= float(money[money.find(" "):]):
+                bank -= float(money[money.find(" "):])
+                cash += float(money[money.find(" "):])
+                count = 0
+            else :
+                count += 1
+        else :
+            count += 1
+        if count >= 3 :
+            break
     print(f"{bank:.2f}")
     print(f"{cash:.2f}")
 main()

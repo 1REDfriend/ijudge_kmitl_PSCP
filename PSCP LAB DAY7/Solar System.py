@@ -2,7 +2,7 @@
 def main() :
     """Solar System main"""
     solar_ss = input().strip()
-    sun = solar_ss.find("Sun")
+    sun = solar_ss.find("Sun ")
 
     hot = ''
     cool = ''
