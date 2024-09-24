@@ -1,33 +1,24 @@
 """Stamps"""
-def main() :
+def main():
     """Stamps main"""
-    eatCount = int(input())
-    needPaid = int(input())
-    stampAdd = int(input())
-    needStamp = int(input())
+
+    num = int(input())
+    price_need = int(input())
+    stamp_add = int(input())
+    stamp_need = int(input())
     discount = int(input())
 
-    stampStack = 0
-    result = 0
-    use_stamp = False
+    count=0
+    all_pay = 0
 
-    for _ in range(eatCount) :
-        iPaid = int(input())
-        if stampStack >= needStamp and needStamp:
-            pay = iPaid
-            while stampStack >= needStamp :
-                stampStack -= needStamp
-                pay -= discount
-                if pay <= 0 :
-                    break
-            if pay > 0 :
-                result += pay
-            use_stamp = True
-        if iPaid >= needPaid and needPaid:
-            stampStack += (iPaid // needPaid ) * stampAdd
-        if not use_stamp :
-            result += iPaid
-        use_stamp = False
-    print(result)
-    print(stampStack)
+    for _ in range(num):
+        pay = int(input())
+        if count >= stamp_need:
+            while pay > 0 and count > 0 and count-stamp_need >= 0:
+                pay = max(pay - discount,0)
+                count -= stamp_need
+        all_pay += pay
+        count += (pay//price_need)*stamp_add
+    print(all_pay,count,sep="\n")
+
 main()
