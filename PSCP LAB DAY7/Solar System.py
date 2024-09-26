@@ -1,9 +1,17 @@
 """Solar System"""
+def sunsu(solar_ss) :
+    """sunLnwza"""
+    sun = 0
+    if solar_ss.find("Sun ") != -1 :
+        sun = solar_ss.find("Sun ")
+    elif solar_ss.find(" Sun") != -1:
+        sun = solar_ss.find(" Sun") +1
+    return sun
+
 def main() :
     """Solar System main"""
     solar_ss = input().strip()
-    sun = solar_ss.find("Sun ")
-
+    sun = sunsu(solar_ss)
     hot = ''
     cool = ''
 
