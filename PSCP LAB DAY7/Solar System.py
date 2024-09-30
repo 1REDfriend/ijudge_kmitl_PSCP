@@ -1,11 +1,12 @@
 """Solar System"""
-def sunsu(solar_ss) :
+def sunsu(solar_ss : str) :
     """sunLnwza"""
     sun = 0
-    if solar_ss.find("Sun ") != -1 :
+    temp = solar_ss.find("Sun ")
+    if solar_ss.find("Sun ") != -1 and solar_ss.find(" Sun",temp-3,temp+3) != -1:
         sun = solar_ss.find("Sun ")
-    elif solar_ss.find(" Sun") != -1:
-        sun = solar_ss.find(" Sun") +1
+    elif solar_ss.rfind(" Sun") != -1:
+        sun = solar_ss.rfind(" Sun") +1
     return sun
 
 def main() :
