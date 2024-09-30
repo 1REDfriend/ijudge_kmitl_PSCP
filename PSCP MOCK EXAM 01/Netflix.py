@@ -1,78 +1,70 @@
 """Netflix"""
-def endOfNetflix(m,b,s,p,price) :
-    """if else lastest"""
-    if s > 1 :
-        p += 1
-        s -= 1
-        price = price + (349 - 419)
-    if p :
-        print(f'Premium x {p}')
-    elif s :
-        print(f'Standard x {s}')
-    elif b :
-        print(f'Basic x {b}')
-    elif m :
-        print(f'Mobile x {m}')
-    print(f'Total = {price} THB')
-def whyloop(n1,n2 ,n3) :
-    """while loop"""
-    counter = 0
-    while (n1 > 0 or n2 > 0) :
-        counter += 1
-        n1 -= n3
-        n2 -= n3
-    return counter
-def zeroTrush(n) :
-    """not minus"""
-    if n > 0 :
-        return 0
-    return n
+def check(c_mobile, c_basic, c_standard, c_premium, total) :
+    """check"""
+    if c_premium :
+        print(f"Premium x {c_premium}")
+    if c_standard :
+        print(f"Standard x {c_standard}")
+    if c_basic :
+        print(f"Basic x {c_basic}")
+    if c_mobile :
+        print(f"Mobile x {c_mobile}")
+    print(f"Total = {total} THB")
+
+def num_max(num, w_tv, hd, uhd) :
+    """num device or screen"""
+    c_mobile = 0
+    c_basic = 0
+    c_standard = 0
+    c_premium = 0
+    total = 0
+    if w_tv == "Yes" and num >= 3 :
+        n = num // 4
+        total += 419 * n
+        c_premium += n
+        num -= n * 4
+        if w_tv == "Yes" and num >= 3 :
+            c_premium += 1
+            total += 419
+            num -= 4
+    if w_tv == "Yes" and uhd == "No" and num >= 2 :
+        n = num // 2
+        total += 349 * n
+        c_standard += n
+        num -= n * 2
+    if w_tv == "Yes" and hd == "No" and uhd == "No" and num == 1 :
+        total += 279 * num
+        c_basic += num
+        num = 0
+    if uhd == "Yes" and num > 0 :
+        total += 419
+        c_premium += 1
+    elif hd == "Yes" and num > 0 :
+        total += 349
+        c_standard += 1
+    elif w_tv == "Yes" and num > 0 :
+        total += 279
+        c_basic += 1
+    elif num > 0 :
+        total += 99 * num
+        c_mobile += num
+    check(c_mobile, c_basic, c_standard, c_premium, total)
 
 def main() :
     """Netflix main"""
-    nOfScreen = int(input())
-    nOfPhone = int(input())
-    input()
-    watchOnMobile = input()
-    watchOnLaptop = input()
+
+    num_screens = int(input())
+    num_device = int(input())
+    u_movie = input()
+    w_mobile= input()
+    w_tv = input()
     hd = input()
-    ultraHD = input()
+    uhd = input()
 
-    m = 0
-    b = 0
-    s = 0
-    p = 0
-    totalPrice = 0
-
-    if ultraHD == "Yes" :
-        p += 1
-        nOfPhone = zeroTrush(nOfPhone - 4)
-        nOfScreen = zeroTrush(nOfScreen - 4)
-        p += whyloop(nOfPhone , nOfScreen , 4 )
-        totalPrice += p*419
-    elif hd == "Yes" :
-        s += 1
-        nOfPhone = zeroTrush(nOfPhone - 2)
-        nOfScreen = zeroTrush(nOfScreen - 2)
-        s += whyloop(nOfPhone , nOfScreen , 2 )
-        totalPrice += s*349
-    elif watchOnLaptop == "Yes" :
-        b += 1
-        nOfPhone = zeroTrush(nOfPhone - 1)
-        nOfScreen = zeroTrush(nOfScreen - 1)
-        b += whyloop(nOfPhone , nOfScreen , 1 )
-        totalPrice += b*279
-    elif watchOnMobile == 'Yes' :
-        m += 1
-        nOfPhone = zeroTrush(nOfPhone - 1)
-        nOfScreen = zeroTrush(nOfScreen - 1)
-        m += whyloop(nOfPhone , nOfScreen , 1 )
-        totalPrice += m*99
+    u_movie += ""
+    w_mobile+= ""
+    if num_device > num_screens :
+        num_max(num_device, w_tv, hd, uhd)
     else :
-        while (nOfPhone > 0 or nOfScreen > 0) :
-            m += 1
-            totalPrice += 99
-            nOfPhone = zeroTrush(nOfPhone - 1)
-            nOfScreen = zeroTrush(nOfScreen - 1)
-    endOfNetflix(m,b,s,p,totalPrice)
+        num_max(num_screens, w_tv, hd, uhd)
 main()
