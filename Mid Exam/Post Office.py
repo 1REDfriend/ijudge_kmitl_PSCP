@@ -4,7 +4,7 @@ def en(envelop) :
     en_result = 0
     for _ in range(envelop) :
         weight = float(input())
-        if weight > 1000 and weight <= 2000:
+        if 1000 < weight <= 2000 :
             en_result += 68
         elif weight > 500 :
             en_result += 48
@@ -25,7 +25,7 @@ def pc(package) :
     pc_result = 0
     for _ in range(package) :
         weight = float(input())
-        if weight > 1000 and weight <= 2000:
+        if 1000 < weight <= 2000:
             pc_result += 70
         elif weight > 500 :
             pc_result += 55
