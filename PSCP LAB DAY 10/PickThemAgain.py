@@ -2,8 +2,9 @@
 def main() :
     """PickThemAgain main"""
     text_split = sorted(input().split(" "), key=lambda x : x.isnumeric(), reverse=True)
-    hsa_been = False
-    for i in text_split :
+    print(text_split)
+    has_been = False
+    for i in text_split[:] :
         if i.isnumeric() :
             if not int(i) % 3 or not int(i) % 5 :
                 print(i)
