@@ -1,24 +1,30 @@
-'''h'''
-import math
+"""Median calculation module."""
+
+
+def check(value):
+    """Find the median of a list of values."""
+    length_of_list = len(value)
+    number = sorted(value)
+
+    if not length_of_list:
+        return None
+
+    if not length_of_list % 2:
+        return number[length_of_list // 2 - 1] / 2.0 + number[length_of_list // 2] / 2.0
+    return number[length_of_list // 2]
+
+
 def main():
-    '''f'''
-    n = int(input())
-    l = []
-    f = 0
-    r = 0
-    result = 0
-    for _ in range(n):
-        l.append(float(input()))
-    l.sort()
-    if not n % 2 :
-        first = l[n//2]
-        end = l[(n//2) + 1]
-        f = (first+end)/2
-        r = (f+1)/2
-        first = l[math.floor(r)]
-        end = l[math.floor(r) + 1]
-        result = (first+end)/2
-    else :
-        result = l[int((l[((n//2))]+1)/2)]
-    print(f'{result:.3f}')
+    """Main function to calculate median from input values."""
+    countable = int(input())
+    number_list = []
+
+    for _ in range(countable):
+        number_list.append(float(input()))
+
+    median = check(number_list)
+    if median is not None:
+        print(f"{median:.3f}")
+
+
 main()

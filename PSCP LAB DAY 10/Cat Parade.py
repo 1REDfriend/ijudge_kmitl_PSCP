@@ -1,14 +1,11 @@
 """Cat Parade"""
-def insertPoint(parade_list) :
-    """cat pointing"""
-
 def cat(name , parade_list : list , counter) :
     """cat"""
     for i in name:
         if i != "END":
             if i != "IT'S A DOG":
                 found = False
-                for j in range(len(parade_list)):
+                for j,_ in enumerate(parade_list):
                     if parade_list[j][0] == i:
                         parade_list[j][2] += 1
                         found = True
@@ -37,5 +34,5 @@ def main() :
             break
     parade_sort = sorted(parade_list,key=lambda x : x[0])
     for i in parade_sort :
-        print(" ".join(i))
+        print(f"{i[0]} {i[1]} {i[2]}")
 main()
