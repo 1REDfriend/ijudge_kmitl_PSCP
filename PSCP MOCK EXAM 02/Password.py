@@ -1,5 +1,5 @@
 """Password"""
-import math
+import math 
 def check(text) :
     """Check password strength."""
     set1 = "abcdefghijklmnopqrstuvwxyz"
