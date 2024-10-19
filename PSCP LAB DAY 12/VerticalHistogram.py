@@ -12,14 +12,13 @@ def main() :
             else :
                 dt[i] = 1
 
-    max_num = max(dt.values())
-    len_maxnum = len(str(max_num))
+    max_num = max(dt.values()) if max(dt.values()) <= 99 else 99
     for i in range(max_num,0 , -1) :
-        print(i, end="  ")
+        print(f"{i:>2}", end="  ")
         for _,v in dt.items() :
             print("*" if v >= i else " ", end=" ")
         print()
-    print("   " , end="")
+    print("    " , end="")
 
     for k,_ in dt.items() :
         print(k,end=" ")
